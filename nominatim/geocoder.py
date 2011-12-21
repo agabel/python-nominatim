@@ -46,3 +46,4 @@ class Geocoder(object):
             data = []
         
         return data
+
