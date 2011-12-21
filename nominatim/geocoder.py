@@ -31,7 +31,7 @@ class Geocoder(object):
         if osm_id:
             params['osm_id'] = osm_id
 
-        
+
         url = self.base_url % urllib.urlencode(params)
         data = urllib2.urlopen(url)
         response = data.read()
@@ -40,6 +40,9 @@ class Geocoder(object):
 
 
     def parse_json(self, data):
-        data = simplejson.loads(data)
-        return data
+        try:
+            data = simplejson.loads(data)
+        except simplejson.JSONDecodeError:
+            data = []
         
+        return data
