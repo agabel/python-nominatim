@@ -13,6 +13,7 @@ class Geocoder(object):
                  countrycodes='', viewbox=(), exclude_place_ids=[],
                  bounded=False, routewidth=None, osm_type='', osm_id=None):
 
+        q =  unicode(q).encode('utf-8')
         params = { 'q': q }
         params['addressdetails'] = addressdetails
 
