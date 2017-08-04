@@ -30,11 +30,11 @@ class Geocoder(object):
             params['q'] = q
 
         if address:
-            address = unicode(address).unicode('utf-8')
+            address = unicode(address).encode('utf-8')
             params['address'] = address
 
         if city:
-            city = unicode(city).unicode('utf-8')
+            city = unicode(city).encode('utf-8')
             params['city'] = city
 
         params['addressdetails'] = addressdetails
