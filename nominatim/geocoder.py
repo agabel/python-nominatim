@@ -16,17 +16,27 @@ class Geocoder(object):
         self.app_name = app_name
         self.key = key
 
-    def geocode(self, q, addressdetails=False, limit=None,
-                 countrycodes='', viewbox=(), exclude_place_ids=[],
-                 bounded=False, routewidth=None, osm_type='', osm_id=None):
+    def geocode(self, q=None, address=None, city=None, addressdetails=False, limit=None,
+                 countrycodes=None, viewbox=(), exclude_place_ids=[],
+                 bounded=False, routewidth=None, osm_type=None, osm_id=None):
 
         params = {}
 
         if self.key:
             params['key'] = self.key
 
-        q = unicode(q).encode('utf-8')
-        params['q'] = q
+        if q:
+            q = unicode(q).encode('utf-8')
+            params['q'] = q
+
+        if address:
+            address = unicode(address).unicode('utf-8')
+            params['address'] = address
+
+        if city:
+            city = unicode(city).unicode('utf-8')
+            params['city'] = city
+
         params['addressdetails'] = addressdetails
 
         if limit is not None:
