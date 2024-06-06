@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='nominatim',
-    version='0.90',
+    version='0.91',
     description='Open MapQuest Nominatim client library',
     author='Austin Gabel',
     author_email='agabel@gmail.com',
