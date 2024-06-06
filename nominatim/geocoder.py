@@ -1,5 +1,4 @@
 import urllib
-import urllib2
 import simplejson
 
 
@@ -53,7 +52,7 @@ class Geocoder(object):
 
         url = self.base_url % urllib.urlencode(params)
 
-        opener = urllib2.build_opener()
+        opener = urllib.request.build_opener()
         opener.addheaders = [('User-agent', self.app_name)]
         data = opener.open(url)
         response = data.read()
