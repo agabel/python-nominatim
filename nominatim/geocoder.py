@@ -50,7 +50,7 @@ class Geocoder(object):
         if osm_id:
             params['osm_id'] = osm_id
 
-        url = self.base_url % urllib.urlencode(params)
+        url = self.base_url % urllib.parse.urlencode(params)
 
         opener = urllib.request.build_opener()
         opener.addheaders = [('User-agent', self.app_name)]
